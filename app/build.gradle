@@ -37,15 +37,15 @@ application {
 }
 
 spotless {
-format 'misc', {
-	target '*.gradle', '.gitattributes', '.gitignore'
+	format 'misc', {
+		target '*.gradle', '.gitattributes', '.gitignore'
 
-	trimTrailingWhitespace()
-	indentWithTabs()
-	endWithNewline()
-}
-java {
-	googleJavaFormat()
-	formatAnnotations()
-}
+		trimTrailingWhitespace()
+		indentWithTabs()
+		endWithNewline()
+	}
+	java {
+		googleJavaFormat()
+		formatAnnotations()
+	}
 }
