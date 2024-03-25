@@ -29,9 +29,10 @@ public class Simulator {
   }
 
   /**
-   * Converts current machine state to string representation
+   * Returns a string representation of current machine state.
    *
-   * @return Current machine state as string
+   * @return A string represenatation of current machine state, including registers values,
+   *     intruction pointer andd stack.
    */
   public String toString() {
     String r0RegStr = String.format("%d\n", this.r0);
