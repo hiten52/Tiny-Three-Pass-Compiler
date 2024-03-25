@@ -1,9 +1,25 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class App {
-  public String getGreeting() {
-    return "Hello World!";
+  public static void main(String[] args) throws IOException {
+    runPrompt();
   }
 
-  public static void main(String[] args) {
-    System.out.println(new App().getGreeting());
+  private static void runPrompt() throws IOException {
+    InputStreamReader input = new InputStreamReader(System.in);
+    BufferedReader reader = new BufferedReader(input);
+
+    for (; ; ) {
+      System.out.print("> ");
+      String line = reader.readLine();
+      if (line == null) break;
+      run(line);
+    }
+  }
+
+  private static void run(String source) {
+    System.out.println(source);
   }
 }
