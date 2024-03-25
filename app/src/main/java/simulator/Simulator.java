@@ -27,4 +27,17 @@ public class Simulator {
     this.ip = 0;
     stack = new Stack<Integer>();
   }
+
+  /**
+   * Converts current machine state to string representation
+   *
+   * @return Current machine state as string
+   */
+  public String toString() {
+    String r0RegStr = String.format("%d\n", this.r0);
+    String r1RegStr = String.format("%d\n", this.r1);
+    String ipStr = String.format("%d\n", this.ip);
+    String stackStr = stack.toString();
+    return String.format("%s%s%s%s", r0RegStr, r1RegStr, ipStr, stackStr);
+  }
 }
