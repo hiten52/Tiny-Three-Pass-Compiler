@@ -19,5 +19,8 @@ public enum TokenType {
   STRING,
   NUMBER,
 
+  arg,
+  imm,
+
   EOF
 }
