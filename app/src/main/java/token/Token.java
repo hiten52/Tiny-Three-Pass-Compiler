@@ -4,9 +4,9 @@ package token;
  * Token class for storing information about lexical units.
  */
 public class Token {
-  final TokenType type; // Type of the token
-  final String lexeme; // Characters forming the token
-  final Object literal; // Literal value associated with token
+  public final TokenType type; // Type of the token
+  public String lexeme; // Characters forming the token
+  public Object literal; // Literal value associated with token
 
   /*
    * Create new instance of Token
@@ -26,7 +26,8 @@ public class Token {
    *
    * @return A string representation of the token, including its type, lexeme, and literal value.
    */
+  @Override
   public String toString() {
-    return String.format("%s %s %s", type, lexeme, literal);
+    return String.format("%s", lexeme);
   }
 }
