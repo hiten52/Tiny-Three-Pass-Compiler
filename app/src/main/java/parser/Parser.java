@@ -28,7 +28,7 @@ public class Parser {
 
   /*
    * Generates AST by parsing the tokens passed to the Parser.
-   * 
+   *
    * @return Expr The root of the AST representing the parsed input.
    */
   public Expr generateAST() {
@@ -117,7 +117,7 @@ public class Parser {
    * Consumes current token if token matches specified token types.
    *
    * @param types Token types to match.
-   * 
+   *
    * @return boolean if match is found returns true, false otherwise.
    */
   private boolean match(TokenType... types) {
@@ -135,12 +135,11 @@ public class Parser {
    * Checks if the current token is of the specified type.
    *
    * @param type Token type to match.
-   * 
+   *
    * @return boolean, if match is found returns true, false otherwise.
    */
   private boolean check(TokenType type) {
-    if (isAtEnd())
-      return false;
+    if (isAtEnd()) return false;
     return peek().type == type;
   }
 
@@ -150,8 +149,7 @@ public class Parser {
    * @return Token Current Token.
    */
   private Token advance() {
-    if (!isAtEnd())
-      current++;
+    if (!isAtEnd()) current++;
     return previous();
   }
 

@@ -8,7 +8,7 @@ public class TokenTest {
   @Test
   public void tokentoString() {
     Token token = new Token(TokenType.LEFT_PAREN, "(", null);
-    assertEquals(token.toString(), "LEFT_PAREN ( null");
+    assertEquals(token.toString(), "LEFT_PAREN (");
 
     token = new Token(TokenType.NUMBER, "12", 12);
     assertEquals(token.toString(), "NUMBER 12 12");

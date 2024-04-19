@@ -19,7 +19,6 @@ public class BinOp extends Expr {
     this.right = right;
   }
 
-
   /*
    * Returns asm instructions for this binary operation.
    *

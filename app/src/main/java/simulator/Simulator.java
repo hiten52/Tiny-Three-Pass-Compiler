@@ -20,12 +20,11 @@ public class Simulator {
     this.r1 = null;
     this.ip = 0;
     stack = new Stack<Integer>();
-
   }
 
   /*
    * Simulates the machine based on the provided assembly instructions.
-   * 
+   *
    * @param asm ArrayList with assembly code
    * @param args ArrayList of arguments as integer
    */
@@ -74,7 +73,7 @@ public class Simulator {
 
   /*
    * Returns the value of register 0. All calculations final result will be stored in r0.
-   * 
+   *
    * @return int Returns the value of register 0.
    */
   public int getR0() {
@@ -85,7 +84,7 @@ public class Simulator {
    * Returns a string representation of current machine state.
    *
    * @return A string represenatation of current machine state, including registers values,
-   *         intruction pointer andd stack.
+   *     intruction pointer andd stack.
    */
   public String toString() {
     String r0RegStr = String.format("%d\n", this.r0);

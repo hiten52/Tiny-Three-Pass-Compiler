@@ -1,16 +1,15 @@
+import asm.AsmGenerator;
+import ast.Expr;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
-import asm.AsmGenerator;
+import optimization.ConstantFolder;
 import parser.Parser;
-import token.Token;
 import scanner.Scanner;
 import simulator.Simulator;
-import ast.Expr;
-import optimization.ConstantFolder;
-import java.util.ArrayList;
-
+import token.Token;
 
 public class App {
   public static void main(String[] args) throws IOException {
@@ -21,7 +20,7 @@ public class App {
     InputStreamReader input = new InputStreamReader(System.in);
     BufferedReader reader = new BufferedReader(input);
 
-    for (;;) {
+    for (; ; ) {
       System.out.print("> Enter command: ");
       String command = reader.readLine();
       if (command == null) {
@@ -51,9 +50,9 @@ public class App {
 
   /*
    * Executes the simulation for a given command and list of arguments.
-   * 
+   *
    * @param source The source command to be processed.
-   * 
+   *
    * @param simulatorArgs A list of integers representing arguments for the simulation.
    */
   static void run(String source, ArrayList<Integer> simulatorArgs) {

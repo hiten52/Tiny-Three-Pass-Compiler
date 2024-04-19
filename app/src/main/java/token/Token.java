@@ -12,9 +12,9 @@ public class Token {
    * Create new instance of Token
    *
    * @param type Type of the token
-   * 
+   *
    * @param lexeme Characters forming the token
-   * 
+   *
    * @param literal Literal value associated with token
    */
   public Token(TokenType type, String lexeme, Object literal) {
