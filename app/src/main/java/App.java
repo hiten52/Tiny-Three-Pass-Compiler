@@ -53,19 +53,25 @@ public class App {
    * Executes the simulation for a given command and list of arguments.
    * 
    * @param source The source command to be processed.
+   * 
    * @param simulatorArgs A list of integers representing arguments for the simulation.
    */
-  private static void run(String source, ArrayList<Integer> simulatorArgs) {
+  static void run(String source, ArrayList<Integer> simulatorArgs) {
     Scanner scanner = new Scanner(source);
     List<Token> tokens = scanner.scanTokens();
+
     Parser parser = new Parser(tokens);
     Expr ast = parser.generateAST();
+
     ConstantFolder constantFolder = new ConstantFolder();
     Expr optimizedAst = constantFolder.foldConstants(ast);
+
     AsmGenerator asmGenerator = new AsmGenerator(optimizedAst);
     ArrayList<String> asmInstructions = asmGenerator.getAsmInstructions();
+
     Simulator simulator = new Simulator();
     simulator.simulate(asmInstructions, simulatorArgs);
-    System.out.println(simulator.getR0()); //final result
+
+    System.out.println(simulator.getR0()); // final result
   }
 }
