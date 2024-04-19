@@ -71,6 +71,15 @@ public class Simulator {
     }
   }
 
+  /*
+   * Returns the value of register 0. All calculations final result will be stored in r0.
+   * 
+   * @return int Returns the value of register 0.
+   */
+  public int getR0() {
+    return this.r0;
+  }
+
   /**
    * Returns a string representation of current machine state.
    *
