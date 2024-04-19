@@ -27,6 +27,15 @@ public class Parser {
   }
 
   /*
+   * Generates AST by parsing the tokens passed to the Parser.
+   * 
+   * @return Expr The root of the AST representing the parsed input.
+   */
+  public Expr generateAST() {
+    return function();
+  }
+
+  /*
    * function ::= "[" argList "]" expression
    */
   private Expr function() {
@@ -39,8 +48,7 @@ public class Parser {
   }
 
   /*
-   * arg-list   ::= nothing
-   *              | variable arg-list
+   * arg-list ::= nothing | variable arg-list
    */
   private void argumentList() {
     while (match(TokenType.IDENTIFIER)) {
@@ -50,9 +58,7 @@ public class Parser {
   }
 
   /*
-   * expression ::= term
-   *              | expression '+' term
-   *              | expression '-' term
+   * expression ::= term | expression '+' term | expression '-' term
    */
   private Expr expression() {
     Expr expr = term();
@@ -67,9 +73,7 @@ public class Parser {
   }
 
   /*
-   * term ::= factor
-   *        | term '*' factor
-   *        | term '/' factor
+   * term ::= factor | term '*' factor | term '/' factor
    */
   private Expr term() {
     Expr expr = factor();
@@ -84,9 +88,7 @@ public class Parser {
   }
 
   /*
-   *  factor ::= number
-   *           | variable
-   *           | '(' expression ')'
+   * factor ::= number | variable | '(' expression ')'
    */
   private Expr factor() {
     if (match(TokenType.MINUS)) {
@@ -115,6 +117,7 @@ public class Parser {
    * Consumes current token if token matches specified token types.
    *
    * @param types Token types to match.
+   * 
    * @return boolean if match is found returns true, false otherwise.
    */
   private boolean match(TokenType... types) {
@@ -132,10 +135,12 @@ public class Parser {
    * Checks if the current token is of the specified type.
    *
    * @param type Token type to match.
+   * 
    * @return boolean, if match is found returns true, false otherwise.
    */
   private boolean check(TokenType type) {
-    if (isAtEnd()) return false;
+    if (isAtEnd())
+      return false;
     return peek().type == type;
   }
 
@@ -145,7 +150,8 @@ public class Parser {
    * @return Token Current Token.
    */
   private Token advance() {
-    if (!isAtEnd()) current++;
+    if (!isAtEnd())
+      current++;
     return previous();
   }
 

@@ -1,6 +1,12 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
+import parser.Parser;
+import token.Token;
+import scanner.Scanner;
+import ast.Expr;
+
 
 public class App {
   public static void main(String[] args) throws IOException {
@@ -11,15 +17,19 @@ public class App {
     InputStreamReader input = new InputStreamReader(System.in);
     BufferedReader reader = new BufferedReader(input);
 
-    for (; ; ) {
+    for (;;) {
       System.out.print("> ");
       String line = reader.readLine();
-      if (line == null) break;
+      if (line == null)
+        break;
       run(line);
     }
   }
 
   private static void run(String source) {
-    System.out.println(source);
+    Scanner scanner = new Scanner(source);
+    List<Token> tokens = scanner.scanTokens();
+    Parser parser = new Parser(tokens);
+    Expr ast = parser.generateAST();
   }
 }
