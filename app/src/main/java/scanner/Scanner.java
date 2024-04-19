@@ -117,6 +117,7 @@ public class Scanner {
    * Adds token with the specifie type and literal value to the list of tokens.
    *
    * @param type The type of token to be added.
+   * 
    * @param literal The literal value associated with the token.
    */
   private void addToken(TokenType type, Object literal) {
@@ -130,7 +131,8 @@ public class Scanner {
    * @return char Current character in source code.
    */
   private char peek() {
-    if (isAtEnd()) return '\0';
+    if (isAtEnd())
+      return '\0';
     return source.charAt(current);
   }
 
@@ -138,6 +140,7 @@ public class Scanner {
    * Checks if character is digit or not.
    *
    * @param c Character to check.
+   * 
    * @return boolean if character is digit returns true, false otherwise.
    */
   private boolean isDigit(char c) {
@@ -148,6 +151,7 @@ public class Scanner {
    * Checks if character is alphabetic or not.
    *
    * @param c Character to check.
+   * 
    * @return boolean if character is alphabetic returns true, false otherwise.
    */
   private boolean isAlpha(char c) {
@@ -155,10 +159,12 @@ public class Scanner {
   }
 
   /*
-   * Scans the number in source code from start poistion to create token and add that token to the list.
+   * Scans the number in source code from start poistion to create token and add that token to the
+   * list.
    */
   private void number() {
-    while (isDigit(peek())) advance();
+    while (isDigit(peek()))
+      advance();
 
     addToken(TokenType.NUMBER, Integer.parseInt(source.substring(start, current)));
   }
@@ -167,6 +173,7 @@ public class Scanner {
    * Checks if character is alphabetic or numeric.
    *
    * @param c Character to check.
+   * 
    * @return boolean, if character is alphanumeric returns true, false otherwise.
    */
   private boolean isAlphaNumeric(char c) {
@@ -174,10 +181,12 @@ public class Scanner {
   }
 
   /*
-   * Scans identifier in source code from start position to create token and add that token to the list.
+   * Scans identifier in source code from start position to create token and add that token to the
+   * list.
    */
   private void identifier() {
-    while (isAlphaNumeric(peek())) advance();
+    while (isAlphaNumeric(peek()))
+      advance();
     addToken(TokenType.IDENTIFIER);
   }
 }
