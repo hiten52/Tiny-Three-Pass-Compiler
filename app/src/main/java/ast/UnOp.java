@@ -17,6 +17,26 @@ public class UnOp extends Expr {
     this.literal = literal;
   }
 
+  /*
+   * Returns asm instructions for this unary operation.
+   *
+   * @return String A string representation of the asm instuctions;
+   */
+  @Override
+  public String toAsm() {
+    if (type.equals(TokenType.arg)) {
+      return "AR " + literal + "\n";
+    } else if (type.equals(TokenType.imm)) {
+      return "IM " + literal + "\n";
+    }
+    return "";
+  }
+
+  /*
+   * Returns a string representation of the UnOp object.
+   *
+   * @return String A string representation of the UnOp;
+   */
   @Override
   public String toString() {
     return String.format("new UnOp(%s, %s)", this.type, this.literal);
