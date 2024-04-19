@@ -6,6 +6,7 @@ import parser.Parser;
 import token.Token;
 import scanner.Scanner;
 import ast.Expr;
+import optimization.ConstantFolder;
 
 
 public class App {
@@ -31,5 +32,7 @@ public class App {
     List<Token> tokens = scanner.scanTokens();
     Parser parser = new Parser(tokens);
     Expr ast = parser.generateAST();
+    ConstantFolder constantFolder = new ConstantFolder();
+    Expr optimizedAst = constantFolder.foldConstants(ast);
   }
 }

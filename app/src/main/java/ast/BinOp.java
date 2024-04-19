@@ -6,9 +6,9 @@ import token.Token;
  * BinOp class represents Binary operation in AST.
  */
 public class BinOp extends Expr {
-  final Expr left; // Left operand of binary operation.
-  final Token operator; // Operator of binary operation.
-  final Expr right; // Right operand of binary operation.
+  public final Expr left; // Left operand of binary operation.
+  public final Token operator; // Operator of binary operation.
+  public final Expr right; // Right operand of binary operation.
 
   /*
    * Create new instance of BinOp.

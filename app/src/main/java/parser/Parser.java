@@ -66,7 +66,7 @@ public class Parser {
     while (match(TokenType.PLUS, TokenType.MINUS)) {
       Token operator = previous();
       Expr right = term();
-      return new BinOp(operator, expr, right);
+      expr = new BinOp(operator, expr, right);
     }
 
     return expr;
@@ -80,8 +80,8 @@ public class Parser {
 
     while (match(TokenType.SLASH, TokenType.STAR)) {
       Token operator = previous();
-      Expr right = term();
-      return new BinOp(operator, expr, right);
+      Expr right = factor();
+      expr = new BinOp(operator, expr, right);
     }
 
     return expr;

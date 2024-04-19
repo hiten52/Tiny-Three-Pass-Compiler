@@ -6,8 +6,8 @@ import token.TokenType;
  * UnOp class represents unary operations in AST.
  */
 public class UnOp extends Expr {
-  final TokenType type; // Type of unary operation.
-  final int literal; // Operand of unary operaion.
+  public final TokenType type; // Type of unary operation.
+  public final int literal; // Operand of unary operaion.
 
   /*
    * Create new instance of UnOp.
