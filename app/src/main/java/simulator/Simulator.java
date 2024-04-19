@@ -29,6 +29,7 @@ public class Simulator {
    * @param asm ArrayList with assembly code
    * @param args ArrayList of arguments as integer
    */
+  @SuppressWarnings("null")
   public void simulate(ArrayList<String> asm, ArrayList<Integer> args) {
     while (ip < asm.size()) {
       String instruct = asm.get(ip);
